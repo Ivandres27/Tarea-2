@@ -1,0 +1,29 @@
+#Tarea 2 Box Muller
+#Método de simulacion de pares de números aleatorios independientes, con distribución
+#Normal estándar
+#Generamos dos v.a.i. uniformes en (0,1] y utilizamos el 
+#método polar para transformar las variables
+
+x <- function(...) {
+  u1 <- runif(1)
+  u2 <- runif(1)
+  sqrt(-2*log(u2))*cos(2*pi*u1)}
+
+
+
+
+y <- function(...){
+  
+  u3 <- runif(1)
+  u4 <- runif(1)
+  sqrt(-2*log(u4))*sin(2*pi*u3)
+}
+
+  
+  output$distPlot <- renderPlot({
+    xh <- sapply(numeric(input$X),x)
+    yh <-sapply(numeric(input$Y),y)
+    
+    hist(xg, col = 'black', border = 'red')
+    
+  })
